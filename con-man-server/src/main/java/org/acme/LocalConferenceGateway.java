@@ -16,6 +16,11 @@ public class LocalConferenceGateway implements ConferenceGateway {
     }
 
     @Override
+    public List<String> getConferences() {
+        return conferences.keySet().stream().toList();
+    }
+
+    @Override
     public List<String> addSessionToConference(String conference, String session) {
         List<String> sessions = conferences.get(conference);
         sessions.add(session);
