@@ -4,6 +4,10 @@ Anna Attendee is attending BalloonCon2023 in Chicago, IL at the Convention Cente
 
 # User Stories
 
+As an organizer, I want to be able to add a conference, so that I can set the schedule.
+
 As an attendee, I want to know what sessions are available, so that I can determine my schedule.
+
+As an organizer, I want to be able to add sessions to a conference, so that I can set the schedule.
 
 As an attendee, I want to be able to register for a session, so that I can be confident in my schedule.

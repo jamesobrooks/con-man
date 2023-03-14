@@ -13,7 +13,7 @@ import static org.hamcrest.CoreMatchers.is;
 public class ConferenceSchedulingControllerTest {
 
     @BeforeAll
-    static void init() {
+    static void init() throws Exception {
         TestObjectFactory.init();
         ConferenceGateway gateway = ObjectFactory.getObjectByAbstractClass(ConferenceGateway.class);
         gateway.addConference(MOCK_CONFERENCE_ONE);

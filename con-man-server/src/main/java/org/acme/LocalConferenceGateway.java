@@ -11,8 +11,14 @@ public class LocalConferenceGateway implements ConferenceGateway {
     private Map<String, List<String>> conferences = new HashMap<>();
 
     @Override
-    public List<String> addConference(String conference) {
-        return conferences.put(conference, new ArrayList<>());
+    public List<String> addConference(String conference) throws Exception {
+        if (conferences.containsKey(conference)) {
+            throw new Exception("Conference already exists.");
+        }
+        if (conferences.put(conference, new ArrayList<>()) == null) {
+            return conferences.keySet().stream().toList();
+        }
+        return null;
     }
 
     @Override

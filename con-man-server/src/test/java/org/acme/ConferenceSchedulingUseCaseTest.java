@@ -8,6 +8,7 @@ import java.util.List;
 
 import static com.google.common.truth.Truth.assertThat;
 import static org.acme.TestConstants.MOCK_CONFERENCE_ONE;
+import static org.acme.TestConstants.MOCK_CONFERENCE_TWO;
 import static org.acme.TestConstants.MOCK_SESSION_ONE;
 
 @QuarkusTest
@@ -15,7 +16,7 @@ public class ConferenceSchedulingUseCaseTest {
     static ConferenceSchedulingUseCase conferenceSchedulingUseCase;
 
     @BeforeAll
-    static void init() {
+    static void init() throws Exception {
         TestObjectFactory.init();
         conferenceSchedulingUseCase = new ConferenceSchedulingUseCase();
         ConferenceGateway gateway = ObjectFactory.getObjectByAbstractClass(ConferenceGateway.class);
@@ -39,5 +40,10 @@ public class ConferenceSchedulingUseCaseTest {
     public void getSessionsByConferenceTestFakeConference() {
         List<String> sessions = conferenceSchedulingUseCase.getSessionsByConference("FakeCon");
         assertThat(sessions).isEmpty();
+    }
+
+    @Test
+    public void addConferenceTest() {
+        assertThat(conferenceSchedulingUseCase.addConference(MOCK_CONFERENCE_TWO)).isTrue();
     }
 }

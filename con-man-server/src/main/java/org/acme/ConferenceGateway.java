@@ -3,7 +3,7 @@ package org.acme;
 import java.util.List;
 
 public interface ConferenceGateway {
-    public List<String> addConference(String conference);
+    public List<String> addConference(String conference) throws Exception;
 
     public List<String> getConferences();
 
